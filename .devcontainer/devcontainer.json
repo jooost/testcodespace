@@ -2,7 +2,7 @@
   "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
   "features": {
     "ghcr.io/microsoft/codespace-features/external-repository": {
-      "cloneUrl": "https://dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
+      "cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
       "folder": "/workspaces/MovieTracker"
     },
     "ghcr.io/microsoft/codespace-features/artifacts-helper": {}
