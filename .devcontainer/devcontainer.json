@@ -1,17 +1,25 @@
+
 {
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
-  "features": {
-    "ghcr.io/microsoft/codespace-features/external-repository": {
-      "cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
-      "folder": "/workspaces/MovieTracker"
-    },
-    "ghcr.io/microsoft/codespace-features/artifacts-helper": {}
-  },
-  "customizations": {
-    "vscode": {
-      "settings": {
-        "adoCodespacesAuth.tenantID": "0fa6c7d9-d796-4b4a-95b6-6b2b8c280ad2"
-      }
-    }
-  }
+	"name": "Default Linux Universal",
+	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+	"features": {
+		"ghcr.io/microsoft/codespace-features/external-repository:latest": {
+			"cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
+			"folder": "/workspaces/ado-repos"
+		},
+		  "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {},	
+	},
+	"workspaceFolder": "/workspaces/ado-repos",
+	"initializeCommand": "mkdir -p ${localWorkspaceFolder}/../ado-repos",
+  "postStartCommand": "external-git clone",
+  "postAttachCommand": "external-git config",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+			]
+		}
+	}
 }
