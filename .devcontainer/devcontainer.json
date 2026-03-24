@@ -6,8 +6,7 @@
       "cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
       "folder": "/workspaces/ado-repos"
     },
-    "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {}
+    "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {}
   },
   "workspaceFolder": "/workspaces/ado-repos",
   "initializeCommand": "mkdir -p ${localWorkspaceFolder}/../ado-repos",
