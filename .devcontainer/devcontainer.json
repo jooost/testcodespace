@@ -7,12 +7,12 @@
       "folder": "/workspaces/ado-repos"
     },
     "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {},
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
   },
   "workspaceFolder": "/workspaces/ado-repos",
   "initializeCommand": "mkdir -p ${localWorkspaceFolder}/../ado-repos",
-  "postStartCommand": "external-git clone && mkdir -p /workspaces/azurite",
+  "postCreateCommand": "npm install -g azure-functions-core-tools@4 --unsafe-perm true && mkdir -p /workspaces/azurite",
+  "postStartCommand": "external-git clone",
   "postAttachCommand": "external-git config",
   "forwardPorts": [10000],
   "portsAttributes": {
