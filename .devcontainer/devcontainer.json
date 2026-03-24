@@ -1,25 +1,35 @@
-
 {
-	"name": "Default Linux Universal",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:20",
-	"features": {
-		"ghcr.io/microsoft/codespace-features/external-repository:latest": {
-			"cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
-			"folder": "/workspaces/ado-repos"
-		},
-		  "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {},	
-	},
-	"workspaceFolder": "/workspaces/ado-repos",
-	"initializeCommand": "mkdir -p ${localWorkspaceFolder}/../ado-repos",
-  "postStartCommand": "external-git clone",
+  "name": "MovieTracker Dev",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  "features": {
+    "ghcr.io/microsoft/codespace-features/external-repository:latest": {
+      "cloneUrl": "https://mindchill@dev.azure.com/mindchill/MovieTracker/_git/MovieTracker",
+      "folder": "/workspaces/ado-repos"
+    },
+    "ghcr.io/prulloac/devcontainer-features/pre-commit:1.0.3": {},
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
+  },
+  "workspaceFolder": "/workspaces/ado-repos",
+  "initializeCommand": "mkdir -p ${localWorkspaceFolder}/../ado-repos",
+  "postStartCommand": "external-git clone && mkdir -p /workspaces/azurite",
   "postAttachCommand": "external-git config",
-
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"GitHub.copilot",
-				"GitHub.copilot-chat",
-			]
-		}
-	}
+  "forwardPorts": [10000],
+  "portsAttributes": {
+    "10000": { "label": "Azurite Blob" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-azuretools.vscode-azurefunctions",
+        "Azurite.azurite"
+      ],
+      "settings": {
+        "azurite.location": "/workspaces/azurite",
+        "azurite.blobHost": "0.0.0.0"
+      }
+    }
+  }
 }
